@@ -262,8 +262,7 @@ describe('Modal', function () {
         equal(modal.props.isOpen, true);
         var overlay = TestUtils.scryRenderedDOMComponentsWithClass(modal.portal, 'ReactModal__Overlay');
         equal(overlay.length, 1);
-        Simulate.mouseDown(overlay[0]); // click the overlay
-        Simulate.mouseUp(overlay[0]);
+        Simulate.click(overlay[0]); // click the overlay
         ok(!requestCloseCallback.called)
       });
 
@@ -279,8 +278,7 @@ describe('Modal', function () {
         equal(modal.props.isOpen, true);
         var overlay = TestUtils.scryRenderedDOMComponentsWithClass(modal.portal, 'ReactModal__Overlay');
         equal(overlay.length, 1);
-        Simulate.mouseDown(overlay[0]); // click the overlay
-        Simulate.mouseUp(overlay[0]);
+        Simulate.click(overlay[0]); // click the overlay
         ok(requestCloseCallback.called)
       });
 
@@ -345,8 +343,7 @@ describe('Modal', function () {
       equal(modal.props.isOpen, true);
       var overlay = TestUtils.scryRenderedDOMComponentsWithClass(modal.portal, 'ReactModal__Overlay');
       equal(overlay.length, 1);
-      Simulate.mouseDown(overlay[0]); // click the overlay
-      Simulate.mouseUp(overlay[0]);
+      Simulate.click(overlay[0]); // click the overlay
       ok(requestCloseCallback.called)
       // Check if event is passed to onRequestClose callback.
       var event = requestCloseCallback.getCall(0).args[0];
