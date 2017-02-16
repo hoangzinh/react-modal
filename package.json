@@ -1,6 +1,6 @@
 {
   "name": "react-modal",
-  "version": "1.5.2",
+  "version": "1.5.2.2",
   "description": "Accessible modal dialog component for React.JS",
   "main": "./lib/index",
   "repository": {
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "test": "scripts/test --browsers Firefox",
-    "start": "scripts/dev-examples"
+    "start": "scripts/dev-examples",
+    "build": "webpack --config webpack.dist.config.js"
   },
   "authors": [
     "Ryan Florence"

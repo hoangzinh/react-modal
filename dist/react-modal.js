@@ -370,24 +370,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	  },
 
-	  handleOverlayMouseDown: function handleOverlayMouseDown(event) {
+	  handleOverlayOnClick: function handleOverlayOnClick(event) {
 	    if (this.shouldClose === null) {
 	      this.shouldClose = true;
 	    }
-	  },
 
-	  handleOverlayMouseUp: function handleOverlayMouseUp(event) {
 	    if (this.shouldClose && this.props.shouldCloseOnOverlayClick) {
 	      if (this.ownerHandlesClose()) this.requestClose(event);else this.focusContent();
 	    }
 	    this.shouldClose = null;
 	  },
 
-	  handleContentMouseDown: function handleContentMouseDown(event) {
-	    this.shouldClose = false;
-	  },
-
-	  handleContentMouseUp: function handleContentMouseUp(event) {
+	  handleContentOnClick: function handleContentOnClick(event) {
 	    this.shouldClose = false;
 	  },
 
@@ -422,16 +416,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      ref: "overlay",
 	      className: this.buildClassName('overlay', this.props.overlayClassName),
 	      style: Assign({}, overlayStyles, this.props.style.overlay || {}),
-	      onMouseDown: this.handleOverlayMouseDown,
-	      onMouseUp: this.handleOverlayMouseUp
+	      onClick: this.handleOverlayOnClick
 	    }, div({
 	      ref: "content",
 	      style: Assign({}, contentStyles, this.props.style.content || {}),
 	      className: this.buildClassName('content', this.props.className),
 	      tabIndex: "-1",
 	      onKeyDown: this.handleKeyDown,
-	      onMouseDown: this.handleContentMouseDown,
-	      onMouseUp: this.handleContentMouseUp,
+	      onClick: this.handleContentOnClick,
 	      role: this.props.role
 	    }, this.props.children));
 	  }
